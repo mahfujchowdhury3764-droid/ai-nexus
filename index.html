@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b18">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AI NEXUS">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icon.svg">
+<meta name="description" content="AI Nexus — useful smart tools for writing, ideas, study and creativity.">
+<title>AI NEXUS — Your Smart Toolkit</title>
+<style>
+:root{--bg:#080b18;--panel:#11172a;--panel2:#151d34;--text:#f4f6ff;--muted:#a5aec8;--line:#28324d;--cyan:#5ce1e6;--purple:#9b7bff;--pink:#f18bd2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1b2250 0,transparent 38%),radial-gradient(ellipse at 90% 10%,#291748 0,transparent 32%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Noto Sans Bengali",sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}
+.logo{font-weight:900;letter-spacing:1.5px;font-size:21px}.logo span{color:var(--cyan)}.navlinks{display:flex;gap:24px;color:var(--muted);font-size:14px}.navlinks a:hover{color:var(--cyan)}
+.pill{border:1px solid #5ce1e655;color:var(--cyan);padding:8px 13px;border-radius:99px;font-size:12px}
+.hero{text-align:center;padding:76px 0 42px}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #9b7bff55;background:#9b7bff12;padding:8px 14px;border-radius:99px;color:#d5caff;font-size:13px}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.04;letter-spacing:-2.8px;margin:22px 0 16px}.gradient{background:linear-gradient(90deg,var(--cyan),#a99aff,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:650px;margin:0 auto;color:var(--muted);font-size:17px;line-height:1.8}.hero-actions{display:flex;justify-content:center;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{border:0;border-radius:12px;padding:13px 19px;font-weight:750;cursor:pointer;background:linear-gradient(100deg,var(--cyan),#9c91ff);color:#09111e;box-shadow:0 8px 28px #5ce1e622}.btn.secondary{background:#ffffff0b;border:1px solid var(--line);color:var(--text);box-shadow:none}.btn:hover{transform:translateY(-1px)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:650px;margin:42px auto 0}.stat{padding:16px;border:1px solid var(--line);background:#ffffff08;border-radius:16px}.stat b{font-size:22px;display:block}.stat span{font-size:12px;color:var(--muted)}
+.section{padding:35px 0 65px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}.section h2{font-size:29px;margin:0 0 7px}.section-head p{margin:0;color:var(--muted)}
+.search{width:min(330px,100%);background:#0d1325;border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--text);outline:none}.search:focus,textarea:focus,input:focus{border-color:var(--cyan)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.tool{border:1px solid var(--line);border-radius:18px;padding:19px;background:linear-gradient(145deg,#151d34,#0e1426);min-height:175px;cursor:pointer;transition:.2s}.tool:hover{transform:translateY(-4px);border-color:#6b7cae;box-shadow:0 14px 35px #0005}.ico{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,#5ce1e622,#9b7bff2c);font-size:21px;margin-bottom:15px}.tool h3{font-size:16px;margin:0 0 7px}.tool p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}.tag{display:inline-block;margin-top:12px;color:var(--cyan);font-size:11px}
+.notice{border:1px solid #e9c46a44;background:#e9c46a0d;color:#e8d7a7;padding:14px 16px;border-radius:13px;font-size:13px;line-height:1.65;margin-top:20px}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.modal{position:fixed;inset:0;background:#02040bd9;display:none;align-items:center;justify-content:center;padding:18px;z-index:5}.modal.show{display:flex}.dialog{width:min(650px,100%);max-height:90vh;overflow:auto;background:#11182b;border:1px solid #394568;border-radius:20px;padding:23px;box-shadow:0 25px 90px #0009}.dialog-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.dialog h2{margin:0;font-size:23px}.close{background:#ffffff12;border:1px solid var(--line);color:white;border-radius:10px;padding:8px 12px;cursor:pointer}
+label{display:block;margin:18px 0 8px;font-size:13px;color:#dce3f8}textarea,input,select{width:100%;background:#0a1020;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:13px;font:inherit;outline:none}textarea{min-height:125px;resize:vertical}select{margin-bottom:14px}.result{white-space:pre-wrap;background:#0a1020;border:1px solid var(--line);border-radius:12px;padding:15px;min-height:70px;color:#e4eaff;line-height:1.7;margin-top:14px;display:none}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.small{font-size:12px;color:var(--muted);line-height:1.6}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.navlinks{display:none}.hero{padding-top:55px}h1{letter-spacing:-1.5px}.stats{gap:7px}.stat{padding:12px}.stat b{font-size:18px}.section-head{align-items:stretch;flex-direction:column}.search{width:100%}.grid{gap:10px}.tool{padding:15px;min-height:170px}.section h2{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="logo" href="#">AI <span>NEXUS</span></a><div class="navlinks"><a href="#tools">Tools</a><a href="#about">About</a></div><span class="pill">✦ SMART TOOLKIT</span></nav>
+<header class="hero">
+<div class="eyebrow">✦ CREATE • LEARN • GROW</div>
+<h1>Your Ideas,<br><span class="gradient">Powered by Smart Tools.</span></h1>
+<p>লেখালেখি, নতুন আইডিয়া, পড়াশোনা আর সৃজনশীল কাজের জন্য সহজ কিছু স্মার্ট টুল—সব এক জায়গায়।</p>
+<div class="hero-actions"><a class="btn" href="#tools">Explore Tools ↗</a><a class="btn secondary" href="#about">How it works</a></div>
+<div class="stats"><div class="stat"><b>08</b><span>Useful tools</span></div><div class="stat"><b>Free</b><span>Starter version</span></div><div class="stat"><b>24/7</b><span>Available in browser</span></div></div>
+</header>
+<main class="section" id="tools">
+<div class="section-head"><div><h2>Explore the Toolkit</h2><p>তোমার কাজের জন্য একটি টুল বেছে নাও।</p></div><input class="search" id="search" placeholder="🔎 Search tools..." aria-label="Search tools"></div>
+<div class="grid" id="grid">
+<div class="tool" data-title="caption post text writer"><div class="ico">✍️</div><h3>Caption & Post Ideas</h3><p>সোশ্যাল মিডিয়ার পোস্ট ও ক্যাপশনের আইডিয়া।</p><span class="tag">WRITING TOOL ↗</span></div>
+<div class="tool" data-title="idea business content generator"><div class="ico">💡</div><h3>Idea Generator</h3><p>ব্যবসা, কনটেন্ট ও প্রজেক্টের নতুন ভাবনা।</p><span class="tag">CREATIVITY ↗</span></div>
+<div class="tool" data-title="summary summarizer text"><div class="ico">📄</div><h3>Text Summarizer</h3><p>লম্বা লেখার মূল পয়েন্ট সংক্ষেপে দেখো।</p><span class="tag">PRODUCTIVITY ↗</span></div>
+<div class="tool" data-title="study learning explainer"><div class="ico">🎓</div><h3>Study Helper</h3><p>কোনো বিষয় সহজ ভাষায় বোঝার জন্য গাইড।</p><span class="tag">LEARNING ↗</span></div>
+<div class="tool" data-title="business name brand generator"><div class="ico">🚀</div><h3>Business Name Maker</h3><p>নতুন ব্র্যান্ড বা ব্যবসার নামের প্রস্তাব।</p><span class="tag">BUSINESS ↗</span></div>
+<div class="tool" data-title="image prompt art generator"><div class="ico">🎨</div><h3>Image Prompt Maker</h3><p>AI ছবি তৈরির জন্য বর্ণনামূলক প্রম্পট।</p><span class="tag">DESIGN ↗</span></div>
+<div class="tool" data-title="word counter text count"><div class="ico">🔢</div><h3>Word Counter</h3><p>শব্দ, অক্ষর ও বাক্যের সংখ্যা গুনে দেখো।</p><span class="tag">UTILITY ↗</span></div>
+<div class="tool" data-title="translator translate language"><div class="ico">🌐</div><h3>Translation Helper</h3><p>অনুবাদের জন্য সাজানো টেক্সট ও নির্দেশনা।</p><span class="tag">LANGUAGE ↗</span></div>
+</div>
+<div class="notice">ⓘ স্বচ্ছতা: এটি একটি ফ্রি ডেমো ওয়েবসাইট। কিছু টুল ব্রাউজারেই কাজ করে; এগুলো এখনো কোনো অনলাইন AI মডেলের সঙ্গে যুক্ত নয়। AI-ভিত্তিক উত্তর পেতে পরে নিরাপদ সার্ভার ও AI API সংযোগ করতে হবে।</div>
+</main>
+<section class="section" id="about" style="padding-top:0"><h2>Simple. Useful. Accessible.</h2><p style="color:var(--muted);line-height:1.8;max-width:720px">AI Nexus-এর লক্ষ্য হলো দৈনন্দিন লেখা, শেখা ও সৃজনশীল কাজকে সহজ করা। এই প্রথম সংস্করণটি একটিমাত্র HTML ফাইল—কোনো ইনস্টলেশন বা পেইড সার্ভিস দরকার নেই।</p></section>
+<footer><div class="foot"><span>© 2026 AI NEXUS. Built for curious minds.</span><span>Made with ✦ and imagination</span></div></footer>
+</div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="dialog"><div class="dialog-top"><h2 id="modalTitle">Tool</h2><button class="close" id="close" aria-label="Close">✕</button></div><div id="toolBody"></div><div class="result" id="result"></div><div class="actions"><button class="btn" id="run">Generate</button><button class="btn secondary" id="copy">Copy result</button></div><p class="small" id="hint">ফলাফল কপি করে নিজের কাজে ব্যবহার করতে পারো।</p></div></div>
+<script>
+const modal=document.getElementById('modal'),body=document.getElementById('toolBody'),result=document.getElementById('result'),title=document.getElementById('modalTitle');
+let current='';
+const tools={
+'Caption & Post Ideas':{fields:[['বিষয় বা টপিক','যেমন: নতুন অনলাইন বইয়ের দোকান']],run:v=>`পোস্টের আইডিয়া:\n১. ${v} নিয়ে একটি পরিচিতিমূলক পোস্ট\n২. এর ৩টি উপকারিতা তুলে ধরো\n৩. একটি প্রশ্ন দিয়ে দর্শকদের মতামত চাও\n\nক্যাপশন খসড়া:\n“নতুন কিছু শুরু করার আনন্দই আলাদা! ${v} নিয়ে আমাদের নতুন পথচলা। তোমার মতামত জানাও। ✨”\n\nহ্যাশট্যাগ: #নতুনশুরু #সৃজনশীলতা #আপডেট`},
+'Idea Generator':{fields:[['কোন বিষয়ের আইডিয়া চাই?','যেমন: শিক্ষামূলক YouTube channel']],run:v=>`“${v}” বিষয়ে ৫টি আইডিয়া:\n১. Beginner’s guide — একদম শুরু থেকে শেখানো\n২. ৫টি সাধারণ ভুল — এবং কীভাবে এড়াবে\n৩. এক মিনিটের টিপস সিরিজ\n৪. বাস্তব উদাহরণ দিয়ে ব্যাখ্যা\n৫. প্রশ্নোত্তর বা কমিউনিটি চ্যালেঞ্জ\n\nপরামর্শ: ছোট পরিসরে শুরু করে দর্শকের মতামত নাও।`},
+'Text Summarizer':{fields:[['যে লেখাটি সংক্ষেপ করতে চাও','এখানে লেখা পেস্ট করো...']],run:v=>{let s=v.split(/(?<=[.!?।])\s+/).filter(Boolean);let keep=s.slice(0,Math.max(1,Math.ceil(s.length/3)));return `সংক্ষিপ্তসার:\n${keep.join(' ')}\n\nমূল শব্দ: ${v.trim().split(/\s+/).length}\nনোট: এটি একটি সহজ extractive summary; গুরুত্বপূর্ণ তথ্য নিজে যাচাই করো।`}},
+'Study Helper':{fields:[['কোন বিষয়টি বুঝতে চাও?','যেমন: photosynthesis বা ভগ্নাংশ']],run:v=>`“${v}” শেখার সহজ পরিকল্পনা:\n\n১. বিষয়টির সংজ্ঞা খুঁজে পড়ো।\n২. এটি কেন গুরুত্বপূর্ণ, তা নিজের ভাষায় লেখো।\n৩. একটি বাস্তব উদাহরণ খুঁজে বের করো।\n৪. বিষয়টি ৩টি বাক্যে কাউকে বোঝানোর চেষ্টা করো।\n৫. শেষে নিজেকে ৩টি ছোট প্রশ্ন করো।\n\nএটি একটি study guide, নির্দিষ্ট AI-generated ব্যাখ্যা নয়।`},
+'Business Name Maker':{fields:[['ব্যবসার ধরন বা কীওয়ার্ড','যেমন: handmade gifts']],run:v=>{let a=['Nova','Bright','Nexa','Bloom','Spark','Orbit','Craft','Mitra'];let b=['Hub','Nest','Studio','World','Works','Mart','Lab','Point'];return `নামের আইডিয়া:\n${a.slice(0,6).map((x,i)=>`${i+1}. ${x} ${b[(i+v.length)%b.length]}`).join('\n')}\n\nবেছে নেওয়ার আগে নামটির ডোমেইন, ট্রেডমার্ক ও সামাজিক মাধ্যমের availability যাচাই করো।`}},
+'Image Prompt Maker':{fields:[['কী ধরনের ছবি বানাতে চাও?','যেমন: futuristic city at sunset']],run:v=>`Image prompt:\nA highly detailed, visually striking image of ${v}, cinematic composition, beautiful lighting, rich colors, balanced layout, crisp details, professional digital art, 16:9 aspect ratio.\n\nঐচ্ছিকভাবে যোগ করো: art style, camera angle, mood, background details.`},
+'Word Counter':{fields:[['তোমার লেখা','এখানে লেখা পেস্ট করো...']],run:v=>`শব্দ: ${v.trim()?v.trim().split(/\s+/).length:0}\nঅক্ষর (স্পেসসহ): ${v.length}\nঅক্ষর (স্পেস ছাড়া): ${v.replace(/\s/g,'').length}\nবাক্য: ${v.split(/[.!?।]+/).filter(x=>x.trim()).length}`},
+'Translation Helper':{fields:[['যে লেখাটি অনুবাদ করতে চাও','এখানে লেখা পেস্ট করো...']],run:v=>`অনুবাদের জন্য প্রস্তুত টেক্সট:\n${v}\n\nনির্দেশনা: “উপরের লেখাটি প্রাকৃতিক ও সহজ ভাষায় বাংলায়/ইংরেজিতে অনুবাদ করো। মূল অর্থ ও নাম অপরিবর্তিত রাখো।”\n\nনোট: এই ডেমো নিজে অনুবাদ করে না; অনুবাদের নির্দেশনা তৈরি করে।`}
+};
+function openTool(name){current=name;title.textContent=name;result.style.display='none';result.textContent='';body.innerHTML='';(tools[name].fields).forEach((f,i)=>{let l=document.createElement('label');l.textContent=f[0];let t=document.createElement('textarea');t.id='field'+i;t.placeholder=f[1];body.append(l,t)});modal.classList.add('show');}
+const cardToolMap={'Caption & Post Ideas':'Caption & Post Ideas','Idea Generator':'Idea Generator','Text Summarizer':'Text Summarizer','Study Helper':'Study Helper','Business Name Maker':'Business Name Maker','Image Prompt Maker':'Image Prompt Maker','Word Counter':'Word Counter','Translation Helper':'Translation Helper'};
+document.querySelectorAll('.tool').forEach(card=>card.addEventListener('click',()=>openTool(cardToolMap[card.querySelector('h3').textContent])));
+document.getElementById('run').addEventListener('click',()=>{let vals=[...body.querySelectorAll('textarea')].map(x=>x.value.trim());if(!vals[0]){result.textContent='আগে কিছু লিখে নাও।';result.style.display='block';return}result.textContent=tools[current].run(...vals);result.style.display='block'});
+document.getElementById('copy').addEventListener('click',async()=>{if(!result.textContent)return;try{await navigator.clipboard.writeText(result.textContent);document.getElementById('hint').textContent='কপি হয়েছে!'}catch(e){document.getElementById('hint').textContent='টেক্সটটি সিলেক্ট করে কপি করো।'}});
+function closeModal(){modal.classList.remove('show')}document.getElementById('close').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.getElementById('search').addEventListener('input',e=>{let q=e.target.value.toLowerCase();document.querySelectorAll('.tool').forEach(c=>c.style.display=c.textContent.toLowerCase().includes(q)?'':'none')});
+</script>
+<script>
+if ("serviceWorker" in navigator && location.protocol !== "file:") {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
